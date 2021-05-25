@@ -1,14 +1,4 @@
-#  clean architecture for enterprise application  
-#  name:Saeed Mohammed Saleh Alabidi
-#  email: saeed1adm@gmail.com
-
-
-#  clean architecture for enterprise application  
-#  name:Saeed Mohammed Saleh Alabidi
-#  email: saeed1adm@gmail.com
-
-
-# This is an example of a simple CRUD application with layered software and separation of business logic vs technology.
+This is an example of a simple CRUD application with layered software and separation of business logic vs technology base on clean-architecture for Uncle Bob's.
 
 
 Features
@@ -20,7 +10,7 @@ Features
 
 
 
-Prerequisites
+1-Prerequisites
 Git
 Node JS
 Express
@@ -30,6 +20,8 @@ jest
 supertest
 git clone 
 
+2-start install 
+
 npm i
  
 
@@ -38,3 +30,6 @@ npm test
 
  
  
+#  clean architecture for enterprise application  
+#  name:Saeed Mohammed Saleh Alabidi
+#  email: saeed1adm@gmail.com
