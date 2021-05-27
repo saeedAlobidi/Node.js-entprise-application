@@ -8,6 +8,7 @@
 	3-Adding business rules in an easy way without major modification <br />
 	4-Built on clean architecture  via JavaScript <br />
 	5-new way collect error data and log it to different server <br />
+	6-Testable  <br />
 
  <br />
 
