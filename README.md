@@ -1,40 +1,32 @@
-#  clean architecture for enterprise application  
-#  name:Saeed Mohammed Saleh Alabidi
-#  email: saeed1adm@gmail.com
+<b>This is an example of a simple CRUD application with layered software and separation of business logic vs technology base on clean-architecture for Uncle Bob's.</b>
 
+ <br />
+<br>a-Features</b>
+	1- The system is built to accept different changes in each level <br />
+	2-You can add more than one database without affecting the structure of the project <br />
+	3-Adding business rules in an easy way without major modification <br />
+	4-Built on clean architecture  via JavaScript <br />
+	5-new way collect error data and log it to different server <br />
 
-#  clean architecture for enterprise application  
-#  name:Saeed Mohammed Saleh Alabidi
-#  email: saeed1adm@gmail.com
+ <br />
 
-
-# This is an example of a simple CRUD application with layered software and separation of business logic vs technology.
-
-
-Features
-1- The system is built to accept different changes in each level
-2-You can add more than one database without affecting the structure of the project
-3-Adding business rules in an easy way without major modification
-4-Built on clean architecture  via JavaScript
-5-new way collect error data and log it to different server
-
-
-
-Prerequisites
-Git
-Node JS
-Express
-mssql
-jwt
-jest
-supertest
-git clone 
-
-npm i
- 
-
-3. Start test
-npm test
-
- 
- 
+<b>b-Prerequisites</b> <br />
+	1-Git <br />
+	2-Node JS <br />
+	3-Express <br />
+	4-mssql <br />
+	5-jwt <br />
+	6-jest <br />
+	7-supertest <br />
+	8-git clone  <br />
+ <br />
+<b>c-start install</b>  <br />
+npm i <br />
+ <br />
+ <br />
+<b>d-Start test </b><br />
+	npm test <br />
+ <br />
+<b>e-for more detailed information Contact me:</b> <br />
+	name:Saeed Mohammed Saleh Alabidi <br />
+	email: saeed1adm@gmail.com <br />

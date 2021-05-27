@@ -1,14 +1,28 @@
-function asyncMiddleware(callback){
+function asyncMiddleware(callback) {
 
-    return async (req,res,next)=>{
-  try {
-      await callback(req,res);
-  } catch (error) {
-      next(error);
-  }    
- 
+    return async (req, res, next) => {
+        try {
+            await callback(req, res);
+        } catch (error) {
+            next(error);
+        }
+
     };
 
 }
 
-module.exports= asyncMiddleware;
+
+function asyncHandler(callback) {
+
+    return async (object) => {
+        try {
+            await callback(object);
+        } catch (error) {
+            //Todo: log  
+           
+        }
+
+    };
+
+}
+module.exports = { asyncMiddleware ,asyncHandler};

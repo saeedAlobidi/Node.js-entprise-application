@@ -6,8 +6,8 @@ const Constraints =require( '../../Constraints')
 function error(error, req, res, next) {
 
     ///DOTO: log some datat
-console.log("error_Seeed "+error);
-    res.status(Constraints.status.ERROR);
+console.log("error_Seeed  code: "+Constraints.status.ERROR+" message:  "+error.message);
+    res.status(Constraints.status.ERROR).send(error.message);
 }
 
 

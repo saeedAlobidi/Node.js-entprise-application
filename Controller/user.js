@@ -5,7 +5,7 @@ const domain  = require( '../domain')
 const router = express.Router();
  
 
-router.post('/AddUser',MiddleWare.authentication.permission,MiddleWare.asyncMiddleware(async(req, res) => {
+router.post('/AddUser',MiddleWare.authentication.permission,MiddleWare.asyncMiddleware.asyncMiddleware(async(req, res) => {
   
     let  data = await domain.userUseCase.user.addUser(req.body);
     
@@ -14,7 +14,7 @@ router.post('/AddUser',MiddleWare.authentication.permission,MiddleWare.asyncMidd
 //use case 
 }));
 
-router.post('/getAllUser',MiddleWare.authentication.permission,MiddleWare.asyncMiddleware(async(req, res) => {
+router.post('/getAllUser',MiddleWare.authentication.permission,MiddleWare.asyncMiddleware.asyncMiddleware(async(req, res) => {
   
     let  data = await domain.userUseCase.user.getAllUser();
     status=constants.status.SUCCESS; 
