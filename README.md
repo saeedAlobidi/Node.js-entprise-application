@@ -1,4 +1,4 @@
-<b>This is an example of a simple CRUD application with layered software and separation of business logic vs technology base on clean-architecture for Uncle Bob's.</b>
+<b>This is an example of a simple CRUD application with layered software  base on clean-architecture for Uncle Bob's.</b>
 
  <br />
  
