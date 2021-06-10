@@ -4,7 +4,7 @@ const controller  =require('./Controller')
 
    
 const app = express()
-app.use(middleware.authorization.headerAuth)
+app.use(middleware.task.MiddleHandler(middleware.authorization.headerAuth))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))

@@ -1,9 +1,9 @@
-function async(callback) {
+function asyncMiddleHandler(callback) {
 
     return async (req, res, next) => {
         try {
 
-            await callback(req, res);
+            await callback(req, res,next);
         } catch (error) {
             next(error);
         }
@@ -12,6 +12,19 @@ function async(callback) {
 
 }
 
+function MiddleHandler(callback) {
+
+    return  (req, res, next) => {
+        try {
+
+              callback(req, res,next);
+        } catch (error) {
+            next(error);
+        }
+
+    };
+
+}
 
 function asyncHandler(callback) {
 
@@ -26,4 +39,21 @@ function asyncHandler(callback) {
     };
 
 }
-module.exports = { async, asyncHandler };
+
+
+ 
+function Handler(callback) {
+
+    return  (object) => {
+        try {
+              callback(object);
+        } catch (error) {
+            //Todo: log  
+
+        }
+
+    };
+
+}
+
+module.exports = { asyncMiddleHandler, MiddleHandler ,asyncHandler,Handler};

@@ -1,7 +1,5 @@
 
-module.exports= function makePermissionRepository (db) {
-  
- 
+module.exports= function makePermissionRepository (db) { 
   
     async function getAllPermission () {  
       
