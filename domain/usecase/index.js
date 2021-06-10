@@ -1,11 +1,13 @@
+const Repository  = require( '../repository')
+const permissionUseCase  = require( './permissionUseCase')
 const userUseCase  = require( './User')
-const userRepository  = require( '../repository')
- 
+  
 
-let user=userUseCase(userRepository.user)
+let user=userUseCase(Repository.user)
+let permission=permissionUseCase(Repository.permission)
    
 const usersCommenttService = Object.freeze({
-    user
+    user,permission
 })
 
 module.exports= usersCommenttService

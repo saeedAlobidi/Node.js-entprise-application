@@ -1,10 +1,11 @@
-const userUseCase  = require( './usecase')
-const userRepository  = require( './repository')
+
+const useCase  = require( './usecase')
+const repository  = require( './repository')
  
 
 const doaminService = Object.freeze({
-    userUseCase,
-    userRepository
+    useCase,
+    repository
 })
 
 

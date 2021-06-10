@@ -1,11 +1,13 @@
  const userRepository  = require( './User' )
-const db  = require( '../../database')
+ const permissionRepository  = require( './permission' )
+ const db  = require( '../../database')
 
  
  let user=userRepository(db.dbOperation)
+ let permission=permissionRepository(db.dbOperation)
 
 const repository = Object.freeze({
-    user,
+    user,permission
     
 })
 

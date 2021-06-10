@@ -1,10 +1,9 @@
 
 const sql  = require( 'mssql' )
-const config  = require( '../Config')
+const constraint  = require( '../Constraints')
 const dbCore  = require( './Db')
 
-
- let dbOperation=dbCore({sql,config});
+  let dbOperation=dbCore({sql,config:constraint.dbConfig.config});
 
 const db = Object.freeze({
     dbOperation,

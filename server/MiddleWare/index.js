@@ -1,6 +1,5 @@
-const authentication  = require( './authentication')
-const authorization  = require( './authorization')
+ const authorization  = require( './authorization')
 const error  = require( './error')
-const asyncMiddleware  = require( './asyncMiddleware')
+const task  = require( './async')
 
-module.exports= {authentication,authorization,error,asyncMiddleware}
+module.exports= {authorization,error,task}
