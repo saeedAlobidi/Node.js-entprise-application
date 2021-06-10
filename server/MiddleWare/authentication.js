@@ -6,7 +6,7 @@ const jwt =require('jsonwebtoken')
 function permission(req, res, next) {
 
     const token = req.header('x-auth-token');
-    
+    console.log("allow access this method")
     //TODO: Check user permission
         next();
 }

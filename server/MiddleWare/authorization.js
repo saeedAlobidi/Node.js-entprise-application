@@ -1,25 +1,37 @@
-const jwt =require('jsonwebtoken')
-const constraint  =require( '../../Constraints')
-const config  =require( '../../Config')
+const jwt = require('jsonwebtoken')
+const constraint = require('../../Constraints')
+const config = require('../../Config')
 
 
 //TODO: There some stuff miss
 function headerAuth(req, res, next) {
 
-    next();
-    const token = req.header('x-auth-token');
-
-    if (!token) 
-        res.status(constraint.status.ACCESS_DENIED)
-       
     try {
-        jwt.verify(token, config.envConfig.Key)
-        next();
+
+        const publicToken = req.header('X-P-T');
+        var _publicToken = jwt.verify(publicToken, config.envConfig.config.KEY)
+
+
+        if (_publicToken.key == config.envConfig.config.KEY) {
+            console.log("is authorization person")
+            next()
+        }
+        else {
+            console.log("is not authorization person")
+            res.status(constraint.status.INVALID_TOKEN);
+            res.end();
+        }
+
+
+
     } catch (error) {
-        res.status(constraint.status.INVALID_TOKEN)
+        console.log("authorization", error);
+        res.status(constraint.status.INVALID_TOKEN);
+        res.end();
     }
 
 }
 
 
-module.exports= {headerAuth};
+
+module.exports = { headerAuth };

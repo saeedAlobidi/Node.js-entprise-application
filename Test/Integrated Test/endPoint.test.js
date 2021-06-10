@@ -1,6 +1,8 @@
 const request = require('supertest')
 const constants = require('../../Constraints')
+const config  =require( '../../Config')
 const db  =require( '../../database')
+const jwt =require('jsonwebtoken')
 
 let app
 
@@ -12,10 +14,12 @@ describe("endpoint", () => {
 
   describe("endpoint", () => {
     it("/Post  api/user/AddUser", async () => {
-      status = constants.status.SUCCESS;
-      const result = await request(app)
+      //console.log(jwt.sign({ key:config.envConfig.config.KEY }, config.envConfig.config.KEY))
+       status = constants.status.SUCCESS;
+       const result = await request(app)
         .post('/api/user/AddUser')
-        .send(({ Id: "1", Name: "saeed alabidi", Age: "100" }))
+        .set('X-P-T', jwt.sign({ key:config.envConfig.config.KEY }, config.envConfig.config.KEY)) 
+        .send({ Id: "1", Name: "saeed alabidi", Age: "100" })
         .expect(status)
 
 
@@ -25,6 +29,8 @@ describe("endpoint", () => {
       status = constants.status.SUCCESS;
       const result = await request(app)
         .post('/api/user/getAllUser')
+        .set('X-P-T', jwt.sign({ key:config.envConfig.config.KEY }, config.envConfig.config.KEY)) 
+
       expect(result.body[0].Name).toEqual("saeed alabidi");
     });
 
@@ -36,6 +42,8 @@ describe("endpoint", () => {
     
       const result = await request(app)
         .post('/api/user/getAllUser')
+        .set('X-P-T', jwt.sign({ key:config.envConfig.config.KEY }, config.envConfig.config.KEY)) 
+
         .expect(404)
 
         

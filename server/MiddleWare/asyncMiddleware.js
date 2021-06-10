@@ -2,6 +2,7 @@ function asyncMiddleware(callback) {
 
     return async (req, res, next) => {
         try {
+
             await callback(req, res);
         } catch (error) {
             next(error);
@@ -19,10 +20,10 @@ function asyncHandler(callback) {
             await callback(object);
         } catch (error) {
             //Todo: log  
-           
+
         }
 
     };
 
 }
-module.exports = { asyncMiddleware ,asyncHandler};
+module.exports = { asyncMiddleware, asyncHandler };

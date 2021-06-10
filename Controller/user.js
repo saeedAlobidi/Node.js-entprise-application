@@ -6,8 +6,7 @@ const router = express.Router();
  
 
 router.post('/AddUser',MiddleWare.authentication.permission,MiddleWare.asyncMiddleware.asyncMiddleware(async(req, res) => {
-  
-    let  data = await domain.userUseCase.user.addUser(req.body);
+     let  data = await domain.userUseCase.user.addUser(req.body);
     
     status=constants.status.SUCCESS;
      res.status(status).send(data);
