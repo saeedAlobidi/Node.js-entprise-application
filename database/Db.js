@@ -1,12 +1,7 @@
 module.exports = function makeDb({ sql, config }) {
 
 
-    const QUERY_TYPE = {
-        INSERT: "INSERT",
-        DELETE: "DELETE",
-        UPDATE: "UPDATE",
-        SELECT: "SELECT",
-    }
+  
     async function Query(commands) {
         let pool = await new sql.ConnectionPool(config).connect();
         let result1 = await pool.request().query(commands);
@@ -28,7 +23,7 @@ module.exports = function makeDb({ sql, config }) {
         return await result1.recordsets[0];
     }
 
-    return { Query, PreparedStatement, QUERY_TYPE };
+    return { Query, PreparedStatement};
 }
 
 
