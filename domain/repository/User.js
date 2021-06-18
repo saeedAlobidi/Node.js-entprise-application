@@ -20,7 +20,7 @@ module.exports = function makeUserRepository(db) {
 
 
 
-    return db.PreparedStatement("select * from users ", ['1'])
+    return db.PreparedStatement("select * from users where Id=@v0", ['1'])
   }
   return { addUser, updateUser, getAllUser };
 
