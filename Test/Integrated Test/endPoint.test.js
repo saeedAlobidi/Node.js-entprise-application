@@ -1,6 +1,6 @@
 const request = require('supertest')
-const constraint = require('../../Constraints')
- const db  =require( '../../database')
+const constraint = require('../../constraints')
+ const db  =require( '../../domain/database')
 const jwt =require('jsonwebtoken')
 
 let app
@@ -35,6 +35,7 @@ describe("endpoint", () => {
 
     it("must be return 404 when db error", async () => {
       db.dbOperation.Query =null;
+      db.dbOperation.PreparedStatement =null;
 
       const status = constraint.status.ERROR;
     

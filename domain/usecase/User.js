@@ -1,7 +1,7 @@
 
 const businessRoles  = require( '../../entities')
 
-module.exports=function makeUserUseCase (usersRepository ) {
+module.exports=function makeUserUseCase ({usersRepository,serices} ) {
     
       async function addUser (usertInfo) {  
          
@@ -17,10 +17,7 @@ module.exports=function makeUserUseCase (usersRepository ) {
                 
       }
 
-
-       
  
-          
     return {addUser,getAllUser};
 
   }

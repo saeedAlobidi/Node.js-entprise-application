@@ -1,6 +1,6 @@
  const userRepository  = require( './User' )
  const permissionRepository  = require( './permission' )
- const db  = require( '../../database')
+ const db  = require( '../database')
 
  
  let user=userRepository(db.dbOperation)

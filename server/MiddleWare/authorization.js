@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const constraint = require('../../Constraints')
+const constraint = require('../../constraints')
 const domain = require('../../domain')
 const middleWare = require('../../server/MiddleWare')
 

@@ -2,7 +2,7 @@ const entity =require( '../../entities')
 const repository =require('../../domain/repository') 
 const usecase =require('../../domain/usecase') 
 
-const db  =require( '../../database')
+const db  =require( '../../domain/database')
 describe("Enitiy", () => {
 
     it("send user object and return same object", () => {

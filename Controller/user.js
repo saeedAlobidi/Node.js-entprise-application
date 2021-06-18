@@ -1,6 +1,6 @@
 const middleWare  = require( '../server/MiddleWare')
 const express  = require( 'express')
-const constants  = require( '../Constraints')
+const constants  = require( '../constraints')
 const domain  = require( '../domain')
 const router = express.Router();
  

@@ -1,6 +1,6 @@
 const middleware =require( './server/MiddleWare')
 const express = require('express')
-const controller  =require('./Controller')
+const controller  =require('./controller')
 
    
 const app = express()

@@ -1,6 +1,6 @@
 
 //const log from '../../log'
-const constraint =require( '../../Constraints')
+const constraint =require( '../../constraints')
 
 //TODO: There some stuff miss
 function error(error, req, res, next) {
