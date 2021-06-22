@@ -36,6 +36,7 @@ describe("endpoint", () => {
     it("must be return 404 when db error", async () => {
       db.dbOperation.Query =null;
       db.dbOperation.PreparedStatement =null;
+      db.dbOperation.PreparedTransactionStatement =null;
 
       const status = constraint.status.ERROR;
     

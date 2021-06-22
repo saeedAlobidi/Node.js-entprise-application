@@ -18,9 +18,17 @@ module.exports = function makeUserRepository(db) {
   }
   async function getAllUser() {
 
+    let  statement=null;
+    let  statement2=null;
+     await db.transaction().then(async(t)=>{ 
+
+        statement=await db.PreparedTransactionStatement(t.transaction).excute("select * from users where Id=@v0 and Name=@v1", ['1','saeed alabidi'])
+        statement2=await db.PreparedTransactionStatement(t.transaction).excute("select * from users where Id=@v0 and Name=@v1", ['1','saeed alabidi'])
+         await db.transactionCommit(t.transaction); 
 
 
-    return db.PreparedStatement("select * from users where Id=@v0 and Name=@v1", ['1','saeed alabidi'])
+    });
+   return  statement
   }
   return { addUser, updateUser, getAllUser };
 
