@@ -1,37 +1,50 @@
-const entity =require( '../../entities') 
-const repository =require('../../domain/repository') 
-const usecase =require('../../domain/usecase') 
+const entity = require('../../entities')
+const repository = require('../../domain/repository')
+const usecase = require('../../domain/usecase')
 
-const db  =require( '../../domain/database')
+const db = require('../../domain/database')
 describe("Enitiy", () => {
 
-    it("send user object and return same object", () => {
+    it("check business recquitment  and return same object", () => {
 
 
-        var usre = entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
+        var usre = entity.user.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" }).data
         expect({ Id: usre.Id, Name: usre.Name, Age: usre.Age }).toMatchObject({ Id: "1", Name: "saeed alabidi", Age: "28" });
 
 
     });
 
 
-    it("send empty name  throw exception", () => {
+    it("with  empty name return message (User Name must be not empty)", () => {
 
+ 
+        //1- Arrange
+        let data={ Id: "1", Name: "", Age: "28" };
 
-
-        expect(() => { entity.makeUser({ Id: "1", Name: "", Age: "28" }) }).toThrow("User Name must be not empty");
+        //Act
+        let user =entity.user.makeUser(data) 
+        
+         //Assert
+        expect(user.message).toEqual("User Name must be not empty");
 
 
     });
 
 
 
-    it("send age equal 0 throw exception", () => {
+    it("with  empty name return message (Age must be bigger than 0)", () => {
 
+ 
+        //1- Arrange
+        let data={ Id: "1", Name: "", Age: "0" };
 
+        //Act
+        let user =entity.user.makeUser(data) 
+        
+        //Assert
+        expect(user.message).toEqual("User Name must be not empty");
 
-        expect(() => { entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "0" }) }).toThrow("Age must be bigger than 0");
-
+         
 
     });
 
@@ -39,32 +52,44 @@ describe("Enitiy", () => {
 
 
 })
- 
+
 
 
 describe("repository", () => {
 
     it("save user object  return true", () => {
 
+ 
+        //1- Arrange
         db.dbOperation.Query = jest.fn(() => Promise.resolve(true));
-     
-        var usreEnitiy = entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
-        repository.user.addUser(usreEnitiy).then((e) => {
+
+        //Act
+        var usreEnitiy = entity.user.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
+        
+         //Assert
+         repository.user.addUser(usreEnitiy.data).then((e) => {
             expect(e).toEqual(true);
 
-        });
+        }); 
 
     });
 
 
     it("update user object  return true", () => {
 
+        //1- Arrange
         db.dbOperation.Query = jest.fn(() => Promise.resolve(true));
-        var usreEnitiy = entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
-        repository.user.updateUser(usreEnitiy).then((e) => {
+
+        //Act
+        var usreEnitiy = entity.user.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
+        
+         //Assert
+         repository.user.updateUser(usreEnitiy.data).then((e) => {
             expect(e).toEqual(true);
 
-        });
+        }); 
+
+         
 
     });
 
@@ -75,33 +100,28 @@ describe("repository", () => {
 
 })
 
-  
+
 describe("usecase", () => {
 
     it("save user object  return true", () => {
 
+        //1- Arrange
         db.dbOperation.Query = jest.fn(() => Promise.resolve(true));
-        var usreEnitiy = entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" }) 
- 
-        usecase.user.addUser(usreEnitiy).then((e) => {
+
+        //Act
+        var usreEnitiy = entity.user.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" })
+        
+         //Assert
+         usecase.user.addUser(usreEnitiy.data).then((e) => {
             expect(e).toEqual(true);
 
-        });
+        }); 
 
-    });
+         
  
 
-   it("save user object  return true", () => {
-
-        db.dbOperation.Query = jest.fn(() => Promise.resolve(true));
-        var usreEnitiy = entity.makeUser({ Id: "1", Name: "saeed alabidi", Age: "28" }) 
- 
-        usecase.user.addUser(usreEnitiy).then((e) => {
-            expect(e).toEqual(true);
-
-        });
-
     });
+
  
 
 
