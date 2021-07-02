@@ -22,7 +22,6 @@ const controllerUtilities = require('./Core/utilities')();
 
 router.post('/AddUser', permission.check("AddUser"),upload(controllerUtilities.multerConf()).single('file'), middleWare.task.asyncMiddleHandler(async (req, res) => {
 
-     console.log(req.filecls)
      let data = await domain.useCase.user.addUser(req.body);
 
      res.status(constants.status.SUCCESS).send(data);
